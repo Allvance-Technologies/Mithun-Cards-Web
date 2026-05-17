@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
+import { getAssetPath } from "@/lib/utils"
 
 const categories = [
   {
@@ -51,7 +52,7 @@ export function FeaturedCategories() {
               className="group relative h-[400px] overflow-hidden rounded-2xl shadow-md"
             >
               <Image
-                src={cat.image}
+                src={getAssetPath(cat.image)}
                 alt={cat.title}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"

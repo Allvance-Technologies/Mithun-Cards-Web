@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import { ZoomIn, ShoppingCart, Heart, Star } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { cn, getAssetPath } from "@/lib/utils"
 
 interface CardItemProps {
   id: number
@@ -52,7 +52,7 @@ export function CardItem({
         onClick={onClick}
       >
         <Image
-          src={image}
+          src={getAssetPath(image)}
           alt={name}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-105"

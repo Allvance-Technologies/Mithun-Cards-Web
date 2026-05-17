@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { getAssetPath } from "@/lib/utils"
 
 const posts = [
   { id: 1, image: "/images/card_wedding.png" },
@@ -31,7 +32,7 @@ export function InstagramFeed() {
           {posts.map((post) => (
             <div key={post.id} className="relative aspect-square overflow-hidden group cursor-pointer">
               <Image
-                src={post.image}
+                src={getAssetPath(post.image)}
                 alt="Instagram post"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"

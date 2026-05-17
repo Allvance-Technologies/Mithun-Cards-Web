@@ -4,6 +4,7 @@ import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { getAssetPath } from "@/lib/utils"
 
 const categories = [
   { name: "Wedding", img: "/images/card_wedding.png", href: "/gallery?cat=wedding" },
@@ -60,7 +61,7 @@ export function CircularCategories() {
                 <div className="relative w-28 h-28 md:w-44 md:h-44 rounded-full overflow-hidden border border-transparent group-hover:border-[#8b0000] group-hover:shadow-lg transition-all bg-[#Fdfbf7] p-1">
                   <div className="w-full h-full rounded-full overflow-hidden relative">
                     <Image
-                      src={cat.img}
+                      src={getAssetPath(cat.img)}
                       alt={cat.name}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"

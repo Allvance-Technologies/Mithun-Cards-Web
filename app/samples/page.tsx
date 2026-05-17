@@ -5,6 +5,7 @@ import { ScrollToTop } from "@/components/ScrollToTop"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
+import { getAssetPath } from "@/lib/utils"
 
 export default function SamplesPage() {
   return (
@@ -24,7 +25,7 @@ export default function SamplesPage() {
             {/* Product Image */}
             <div className="relative aspect-square rounded-2xl overflow-hidden bg-muted">
               <Image 
-                src="/images/card_modern.png" 
+                src={getAssetPath("/images/card_modern.png")} 
                 alt="Premium Sample Kit" 
                 fill 
                 className="object-cover hover:scale-105 transition-transform duration-700"

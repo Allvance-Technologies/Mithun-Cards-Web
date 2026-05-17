@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button, buttonVariants } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { cn, getAssetPath } from "@/lib/utils"
 
 const slides = [
   {
@@ -53,7 +53,7 @@ export function HeroSection() {
           className="absolute inset-0 z-0"
         >
           <Image
-            src={slides[current].image}
+            src={getAssetPath(slides[current].image)}
             alt="Premium Wedding Invitations"
             fill
             priority

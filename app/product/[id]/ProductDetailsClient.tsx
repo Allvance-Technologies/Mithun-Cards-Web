@@ -4,6 +4,7 @@ import * as React from "react"
 import { WhatsAppButton } from "@/components/WhatsAppButton"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { getAssetPath } from "@/lib/utils"
 
 interface Product {
   id: number
@@ -27,7 +28,7 @@ export function ProductDetailsClient({ product }: { product: Product }) {
             {/* Product Image */}
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-border/50 bg-white">
               <Image 
-                src={product.image} 
+                src={getAssetPath(product.image)} 
                 alt={product.name} 
                 fill 
                 className="object-cover"
