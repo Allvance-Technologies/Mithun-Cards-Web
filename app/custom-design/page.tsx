@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer"
 import { WhatsAppButton } from "@/components/WhatsAppButton"
 import { ScrollToTop } from "@/components/ScrollToTop"
 import { buttonVariants } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { cn, getAssetPath } from "@/lib/utils"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -69,7 +69,7 @@ export default function CustomDesignPage() {
             <div className="relative">
               <div className="aspect-[4/5] relative rounded-t-full overflow-hidden shadow-2xl border-4 border-white">
                 <Image 
-                  src="/images/hero_banner_3.png" 
+                  src={getAssetPath("/images/hero_banner_3.png")} 
                   alt="Custom Wedding Design" 
                   fill 
                   className="object-cover"

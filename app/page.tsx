@@ -13,7 +13,7 @@ import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { Metadata } from "next"
-import { cn } from "@/lib/utils"
+import { cn, getAssetPath } from "@/lib/utils"
 import { ArrowRight, ShoppingBag, Sparkles, Truck, ShieldCheck, CreditCard } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -107,7 +107,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="relative h-[300px] rounded-3xl overflow-hidden group">
               <Image 
-                src="/images/card_modern.png" 
+                src={getAssetPath("/images/card_modern.png")} 
                 alt="Personalized Cards" 
                 fill 
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -121,7 +121,7 @@ export default function Home() {
             </div>
             <div className="relative h-[300px] rounded-3xl overflow-hidden group">
               <Image 
-                src="/images/card_gold.png" 
+                src={getAssetPath("/images/card_gold.png")} 
                 alt="Religious Cards" 
                 fill 
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -145,7 +145,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative order-2 lg:order-1">
                <Image
-                src="/images/card_floral.png"
+                src={getAssetPath("/images/card_floral.png")}
                 alt="Premium Wedding Invitation"
                 width={600}
                 height={800}
