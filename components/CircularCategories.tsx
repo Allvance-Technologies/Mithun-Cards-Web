@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { getAssetPath } from "@/lib/utils"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const categories = [
   { name: "Wedding", img: "/images/card_wedding.png", href: "/gallery?cat=wedding" },
@@ -41,39 +42,74 @@ export function CircularCategories() {
     }
   };
 
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = 300; // Scroll by 300px
+      const newScrollLeft = direction === 'left' 
+        ? scrollRef.current.scrollLeft - scrollAmount 
+        : scrollRef.current.scrollLeft + scrollAmount;
+      
+      scrollRef.current.scrollTo({
+        left: newScrollLeft,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section className="py-12 bg-[#ebebeb]/30 border-b border-border/50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-serif text-[#382b20] mb-12 text-center md:text-left">Shop by Celebration</h2>
         
-        {/* Carousel Container */}
-        <div 
-          ref={scrollRef}
-          onScroll={handleScroll}
-          className="flex items-center justify-start md:justify-center gap-6 md:gap-10 pb-8 overflow-x-auto snap-x snap-mandatory no-scrollbar"
-        >
-          {categories.map((cat, i) => (
-            <div
-              key={cat.name}
-              className="snap-center shrink-0"
-            >
-              <Link href={cat.href} className="flex flex-col items-center gap-4 group w-28 md:w-44">
-                <div className="relative w-28 h-28 md:w-44 md:h-44 rounded-full overflow-hidden border border-transparent group-hover:border-[#8b0000] group-hover:shadow-lg transition-all bg-[#Fdfbf7] p-1">
-                  <div className="w-full h-full rounded-full overflow-hidden relative">
-                    <Image
-                      src={getAssetPath(cat.img)}
-                      alt={cat.name}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+        {/* Carousel Container Wrapper for Absolute Buttons */}
+        <div className="relative group/carousel">
+          {/* Left Arrow Button */}
+          <button
+            onClick={() => scroll('left')}
+            className="absolute left-0 top-[35%] -translate-y-1/2 z-20 bg-white/95 text-[#382b20] hover:bg-[#8b0000] hover:text-white border border-[#382b20]/10 rounded-full shadow-lg flex items-center justify-center h-10 w-10 md:h-12 md:w-12 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 cursor-pointer"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft size={20} className="md:size-6" />
+          </button>
+
+          {/* Carousel Container */}
+          <div 
+            ref={scrollRef}
+            onScroll={handleScroll}
+            className="flex items-center justify-start md:justify-center gap-6 md:gap-10 pb-8 overflow-x-auto snap-x snap-mandatory no-scrollbar"
+          >
+            {categories.map((cat, i) => (
+              <div
+                key={cat.name}
+                className="snap-center shrink-0"
+              >
+                <Link href={cat.href} className="flex flex-col items-center gap-4 group w-28 md:w-44">
+                  <div className="relative w-28 h-28 md:w-44 md:h-44 rounded-full overflow-hidden border border-transparent group-hover:border-[#8b0000] group-hover:shadow-lg transition-all bg-[#Fdfbf7] p-1">
+                    <div className="w-full h-full rounded-full overflow-hidden relative">
+                      <Image
+                        src={getAssetPath(cat.img)}
+                        alt={cat.name}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
                   </div>
-                </div>
-                <span className="text-[11px] md:text-xs font-bold text-[#5a4838] group-hover:text-[#8b0000] transition-colors text-center">
-                  {cat.name}
-                </span>
-              </Link>
-            </div>
-          ))}
+                  <span className="text-[11px] md:text-xs font-bold text-[#5a4838] group-hover:text-[#8b0000] transition-colors text-center">
+                    {cat.name}
+                  </span>
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          {/* Right Arrow Button */}
+          <button
+            onClick={() => scroll('right')}
+            className="absolute right-0 top-[35%] -translate-y-1/2 z-20 bg-white/95 text-[#382b20] hover:bg-[#8b0000] hover:text-white border border-[#382b20]/10 rounded-full shadow-lg flex items-center justify-center h-10 w-10 md:h-12 md:w-12 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 cursor-pointer"
+            aria-label="Scroll right"
+          >
+            <ChevronRight size={20} className="md:size-6" />
+          </button>
         </div>
 
       </div>
