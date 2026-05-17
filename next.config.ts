@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const isProd = process.env.NODE_ENV === 'production';
-const basePath = isProd ? '/Mithun-Cards-Web' : '';
+const isGitHubActions = process.env.GITHUB_ACTIONS === 'true';
+const basePath = (isProd || isGitHubActions) ? '/Mithun-Cards-Web' : '';
 
 const nextConfig: NextConfig = {
   output: 'export',
