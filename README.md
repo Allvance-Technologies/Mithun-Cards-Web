@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚜️ Mitun Cards — Premium Invitation Solutions
 
-## Getting Started
+An exquisite, state-of-the-art e-commerce platform designed for **Mitun Cards**, India's premier boutique studio for luxury wedding invitations and elegant social stationery.
 
-First, run the development server:
+This application is built with a sleek, responsive, and performance-optimized architecture leveraging Next.js and premium modern design aesthetics.
 
+---
+
+## ✨ Features & Architecture
+
+* **⚜️ Exquisite Aesthetic & Palette:** A tailored dark-serif and warm cream-gold styling paradigm designed to wow customers at first glance.
+* **📱 Responsive Design:** Completely optimized for high-resolution monitors, tablets, and mobile screens.
+* **🔄 Advanced Filtering Suite:** Interactive sidebars inside the [Gallery](app/gallery/page.tsx) to instantly filter cards by Celebration type, Style, Color, and price sliders with real-time UI response.
+* **📦 Dynamic Product Details:** Detail pages featuring zoomed mockups, zoomable gallery previews, specifications (paper type, weight, print technique), and structured order inquiry panels.
+* **💡 Custom Design Studio:** Dedicated forms for clients wishing to order bespoke illustrations or custom bespoke invitations.
+* **💬 Integrated Inquiries:** Integrated inquiry forms and a floating WhatsApp customer support trigger pointing directly to active business channels.
+
+---
+
+## 🛠️ Technology Stack
+
+* **Framework:** [Next.js 16.2.6 (Turbopack Enabled)](https://nextjs.org/)
+* **Runtime:** React 19.2.4
+* **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+* **Primitives:** [@base-ui/react](https://base-ui.com/)
+* **Icons:** [Lucide React](https://lucide.dev/)
+* **Animation:** [Framer Motion](https://www.framer.com/motion/)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Installation
+Clone the repository and install all dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Development Server
+Run the local development server:
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) inside your browser to view the application with Hot Module Replacement (HMR).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Production Compilation & Export
+Compile and generate the optimized static export assets:
+```bash
+npm run build
+```
+Static assets will be exported directly into the `/out` directory.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🌐 Automatic Deployment (GitHub Pages)
 
-To learn more about Next.js, take a look at the following resources:
+This project features a fully automated CI/CD pipeline inside [.github/workflows/deploy.yml](.github/workflows/deploy.yml).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Every time a push is made to the `master` branch:
+1. GitHub Actions spins up a runner.
+2. Automatically configures sub-path prefix mapping (`basePath: '/Mithun-Cards-Web'`).
+3. Installs, compiles, and builds the static assets.
+4. Automatically deploys them directly to [GitHub Pages](https://allvance-technologies.github.io/Mithun-Cards-Web/).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*⚜️ Crafted with absolute care & elegance by Mitun Cards.*
