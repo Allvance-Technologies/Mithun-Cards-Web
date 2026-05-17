@@ -60,57 +60,58 @@ export function CircularCategories() {
     <section className="py-12 bg-[#ebebeb]/30 border-b border-border/50">
       <div className="container mx-auto px-4">
         
-        {/* Header and Controls Row */}
-        <div className="flex items-center justify-between mb-12">
-          <h2 className="text-2xl md:text-4xl font-serif text-[#382b20] text-left">Shop by Celebration</h2>
-          
-          {/* Elegant Navigation Controls */}
-          <div className="flex items-center gap-2 md:gap-3 shrink-0">
-            <button
-              onClick={() => scroll('left')}
-              className="bg-white/95 text-[#382b20] hover:bg-[#8b0000] hover:text-white border border-[#382b20]/10 rounded-full shadow-md flex items-center justify-center h-9 w-9 md:h-12 md:w-12 transition-all duration-300 cursor-pointer hover:shadow-lg active:scale-95"
-              aria-label="Scroll left"
-            >
-              <ChevronLeft size={18} className="md:size-6" />
-            </button>
-            <button
-              onClick={() => scroll('right')}
-              className="bg-white/95 text-[#382b20] hover:bg-[#8b0000] hover:text-white border border-[#382b20]/10 rounded-full shadow-md flex items-center justify-center h-9 w-9 md:h-12 md:w-12 transition-all duration-300 cursor-pointer hover:shadow-lg active:scale-95"
-              aria-label="Scroll right"
-            >
-              <ChevronRight size={18} className="md:size-6" />
-            </button>
-          </div>
-        </div>
+        {/* Section Header */}
+        <h2 className="text-3xl md:text-4xl font-serif text-[#382b20] mb-12 text-center md:text-left">Shop by Celebration</h2>
         
-        {/* Carousel Container */}
-        <div 
-          ref={scrollRef}
-          onScroll={handleScroll}
-          className="flex items-center justify-start md:justify-center gap-6 md:gap-10 pb-8 overflow-x-auto snap-x snap-mandatory no-scrollbar"
-        >
-          {categories.map((cat, i) => (
-            <div
-              key={cat.name}
-              className="snap-center shrink-0"
-            >
-              <Link href={cat.href} className="flex flex-col items-center gap-4 group w-28 md:w-44">
-                <div className="relative w-28 h-28 md:w-44 md:h-44 rounded-full overflow-hidden border border-transparent group-hover:border-[#8b0000] group-hover:shadow-lg transition-all bg-[#Fdfbf7] p-1">
-                  <div className="w-full h-full rounded-full overflow-hidden relative">
-                    <Image
-                      src={getAssetPath(cat.img)}
-                      alt={cat.name}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+        {/* Side-by-Side Flex Layout (Zero Overlap) */}
+        <div className="flex items-center gap-2 md:gap-6">
+          {/* Left Arrow Button */}
+          <button
+            onClick={() => scroll('left')}
+            className="bg-white/95 text-[#382b20] hover:bg-[#8b0000] hover:text-white border border-[#382b20]/10 rounded-full shadow-md flex items-center justify-center h-9 w-9 md:h-12 md:w-12 shrink-0 transition-all duration-300 cursor-pointer hover:shadow-lg active:scale-95"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft size={18} className="md:size-6" />
+          </button>
+
+          {/* Carousel Container */}
+          <div 
+            ref={scrollRef}
+            onScroll={handleScroll}
+            className="flex-1 flex items-center justify-start gap-6 md:gap-10 pb-8 overflow-x-auto snap-x snap-mandatory no-scrollbar"
+          >
+            {categories.map((cat, i) => (
+              <div
+                key={cat.name}
+                className="snap-center shrink-0"
+              >
+                <Link href={cat.href} className="flex flex-col items-center gap-4 group w-28 md:w-44">
+                  <div className="relative w-28 h-28 md:w-44 md:h-44 rounded-full overflow-hidden border border-transparent group-hover:border-[#8b0000] group-hover:shadow-lg transition-all bg-[#Fdfbf7] p-1">
+                    <div className="w-full h-full rounded-full overflow-hidden relative">
+                      <Image
+                        src={getAssetPath(cat.img)}
+                        alt={cat.name}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
                   </div>
-                </div>
-                <span className="text-[11px] md:text-xs font-bold text-[#5a4838] group-hover:text-[#8b0000] transition-colors text-center">
-                  {cat.name}
-                </span>
-              </Link>
-            </div>
-          ))}
+                  <span className="text-[11px] md:text-xs font-bold text-[#5a4838] group-hover:text-[#8b0000] transition-colors text-center">
+                    {cat.name}
+                  </span>
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          {/* Right Arrow Button */}
+          <button
+            onClick={() => scroll('right')}
+            className="bg-white/95 text-[#382b20] hover:bg-[#8b0000] hover:text-white border border-[#382b20]/10 rounded-full shadow-md flex items-center justify-center h-9 w-9 md:h-12 md:w-12 shrink-0 transition-all duration-300 cursor-pointer hover:shadow-lg active:scale-95"
+            aria-label="Scroll right"
+          >
+            <ChevronRight size={18} className="md:size-6" />
+          </button>
         </div>
 
       </div>
